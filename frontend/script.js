@@ -27,12 +27,11 @@ function mostrarArtesanos(lista){
     // Creamos el HTML para cada producto
     contenedor.innerHTML = lista.map(presentacion=> `
         <div class="product-card">
-            <img src="${presentacion.logo_url}" class="product-image" alt="${presentacion.nombre}">
-            <h3>${presentacion.nombre}</h3>
+           <a href="${presentacion.tienda_url}"> <img src="${presentacion.logo_url}" class="product-image" alt="${presentacion.nombre}"></a>
             <p>${presentacion.descripcion}</p>
             <p><strong>${presentacion.localizacion}</strong></p>
-            <a href="${presentacion.instagram_url}"><img src="/assets/intagram.png"></a>
-            <p> ${presentacion.facebook_url}</p>
+            <a href="${presentacion.instagram_url}"><img class ="logo" src="/assets/intagram.png"></a>
+            <a href="${presentacion.facebook_url}"><img class ="logo" src="/assets/facebook.webp"></a>
             <p> ${presentacion.categoria}</p>
         </div>
         `).join ('');

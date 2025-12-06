@@ -4,6 +4,7 @@ import cors from 'cors';
 //import pool from './config/db.js';
 
 import artesanosRoutes from './routes/artesano.routes.js';
+import productosRoutes from './routes/producto.routes.js';
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.get('/', (req, res) => {
 
 //Rutas
 app.use("/api/artesanos",artesanosRoutes);
+app.use("/api/productos", productosRoutes );
 
 // Arrancar el servidor
 const PORT = process.env.PORT || 3000;

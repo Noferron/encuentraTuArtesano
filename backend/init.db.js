@@ -31,13 +31,30 @@ await pool.query(`
     )
   `);
 
+  //TABLA PRODUCTOS
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS productos (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      nombre VARCHAR(100) NOT NULL,
+      descripcion TEXT,
+      imagen_url VARCHAR(200),
+      categoria VARCHAR(100),
+      precio INT NOT NULL,
+      stock INT NOT NULL, 
+      comprar_url VARCHAR (200),
+      activo BOOLEAN DEFAULT TRUE,
+      creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    )
+  `);
+
+
   console.log("✅ Base de datos creada correctamente");
 }
 async function artesanosEjemplo() {
   
 
 await pool.query(`
-  INSERT INTO presentacion 
+  INSERT INTO IF NOT EXISTS presentacion 
     (nombre, descripcion, localizacion, categoria, instagram_url, tienda_url, facebook_url, comentarios_url, logo_url)
   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
 `, [

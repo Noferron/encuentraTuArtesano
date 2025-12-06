@@ -11,3 +11,4 @@ export async function obtenerTodos() {
   return rows;  // Aquí le decimos que nos devuelva el array con los datos de la consulta
 }
  
+

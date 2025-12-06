@@ -1,0 +1,22 @@
+import * as productosModel from "../models/productos.model";
+
+export async function actualizarProductos(req, res) {
+    try{
+        console.log("📦 Creando productos...");
+
+        const{nombre, descripcion, imagen_url, categoria, precio, stock, comprar_url, activo}= req.body;
+
+        const result = await productosModel.actualizarProductos(nombre, descripcion, imagen_url, categoria, precio, stock, comprar_url, activo);
+
+        res.status(201).json ({
+            message: "Producto creado correctamente",
+            productoId: result.nombre
+        });
+
+    }
+    catch(error){
+        console.error(error);
+        res.status(500).json({message: "Error al crear el producto"});
+    }
+    
+}
