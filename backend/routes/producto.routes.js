@@ -3,6 +3,6 @@ import * as productosController from "../controllers/productos.controller.js"
 
 const productosRoutes = Router();
 
-productosRoutes.get ("/", productosController.actualizarProductos);
+productosRoutes.post ("/", productosController.actualizarProductos);
 
 export default productosRoutes;

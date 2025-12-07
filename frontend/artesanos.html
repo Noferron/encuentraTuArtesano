@@ -7,6 +7,27 @@
     <title>Document</title>
 </head>
 <body>
+        <section id="cargarDatos">
+            <form id="formulario">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" required placeholder="nombre del producto">
+                <label for="descripcion">Descripción del producto</label>
+                <input type="text" id="descripcion" placeholder="Escribe una descripción de tu producto">
+                <label for="imagen_url">Imagen</label>
+                <input type="url" id="imagen_url" placeholder="http://www.imagen...">
+                <label for="categoria">Categoria</label>
+                <input type="text" id="categoria" placeholder="velas, cerámica, pintura,... (1 por producto)">
+                <label for="precio">Precio</label>
+                <input type="number" id="precio" placeholder="Ejemplo: 12.25" required>
+                <label for="stock">Stock</label>
+                <input type="number" id="stock" placeholder="25" required>
+                <label for="comprar_url">Enlace a tu tienda</label>
+                <input type="url" id="comprar_url" placeholder="https://www.artenanos...">
+                <label for="activo">¿Está activo este producto?</label>
+                <input type="checkbox" id="activo">
+                <button type="submit" id="crearProducto">Crear producto</button>
+            </form>
+        </section>
     <script src="cargarBBDD.js"></script>
 </body>
 </html>

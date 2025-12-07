@@ -1,4 +1,4 @@
-import * as productosModel from "../models/productos.model";
+import * as productosModel from "../models/productos.model.js";
 
 export async function actualizarProductos(req, res) {
     try{
@@ -6,11 +6,11 @@ export async function actualizarProductos(req, res) {
 
         const{nombre, descripcion, imagen_url, categoria, precio, stock, comprar_url, activo}= req.body;
 
-        const result = await productosModel.actualizarProductos(nombre, descripcion, imagen_url, categoria, precio, stock, comprar_url, activo);
+        const result = await productosModel.actualizarProductos(req.body);
 
         res.status(201).json ({
             message: "Producto creado correctamente",
-            productoId: result.nombre
+            productoId: result.insertId
         });
 
     }
