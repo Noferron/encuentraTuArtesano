@@ -5,12 +5,20 @@ import cors from 'cors';
 
 import artesanosRoutes from './routes/artesano.routes.js';
 import productosRoutes from './routes/producto.routes.js';
+import authRoutes from './routes/auth.routes.js';
 
 const app = express();
 
 // Middlewares
 app.use(cors());
 app.use(express.json());
+
+
+// Middleware de logging para desarrollo
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.path}`);
+  next();
+});
 
 // Ruta raíz de prueba
 app.get('/', (req, res) => {
@@ -20,6 +28,7 @@ app.get('/', (req, res) => {
 //Rutas
 app.use("/api/artesanos",artesanosRoutes);
 app.use("/api/productos", productosRoutes );
+app.use('/api/auth', authRoutes);
 
 // Arrancar el servidor
 const PORT = process.env.PORT || 3000;

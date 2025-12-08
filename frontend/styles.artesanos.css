@@ -1,0 +1,106 @@
+.presentacion{
+    background: burlywood;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+#cargarDatos{
+    display: flex;
+    align-items: center;
+    max-width: 50vmin;
+    background:     #eedec0;
+
+}
+#formulario{
+    max-width: 30vmin;
+    margin: 0 auto;
+    background:     #cf8e145b;
+
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+        
+}
+label{
+    text-align: center;
+    margin-bottom: 20px;
+    color: chocolate;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+input{
+    width: 85%;
+    padding: 10px;
+    border: 4px solid #e0dacb;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 1s ease;
+}
+
+input:focus{
+    outline: none;
+    border-color: #e1a942;
+    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+}
+
+
+.auth-container {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.auth-form {
+  background: #eedec0;
+  padding: 25px;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.auth-form h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: chocolate;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: rgb(211, 130, 72);
+  font-weight: 500;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #e0dacb;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #e1a942;
+  box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.1);
+}
+
+.auth-toggle {
+  text-align: center;
+  margin-top: 15px;
+  color: #666;
+}
+
+.auth-toggle a {
+  color: chocolate;
+  text-decoration: none;
+}
+
+.auth-toggle a:hover {
+  text-decoration: underline;
+}
+
+.hidden {
+    display: none;
+}
