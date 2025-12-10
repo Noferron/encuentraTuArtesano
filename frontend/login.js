@@ -1,13 +1,13 @@
-URL_API = "http://localhost:3000/api";
+const URL_API = "http://localhost:3000/api";
 
 // Registro usuarios
-let estado = {
+export let estado = {
     usuario: null,          // 👤 Información del usuario conectado (null = nadie conectado)
     token: null,           // 🔑 Clave secreta para comunicarse con el servidor
   
 };
 // 💾 Guardar sesión en memoria + localStorage
-function guardarSesion(token, usuario) {
+export default function guardarSesion(token, usuario) {
   estado.token = token;
   estado.usuario = usuario;
 
@@ -15,6 +15,7 @@ function guardarSesion(token, usuario) {
   localStorage.setItem('user', JSON.stringify(usuario));
 
   console.log('💾 Sesión guardada para:', usuario.nombre);
+  
 }
 
 // 🚪 Cerrar sesión

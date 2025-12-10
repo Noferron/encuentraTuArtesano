@@ -4,7 +4,7 @@ export async function actualizarProductos(req, res) {
     try{
         console.log("📦 Creando productos...");
 
-        const{nombre, descripcion, imagen_url, categoria, precio, stock, comprar_url, activo}= req.body;
+        const{nombre, descripcion, imagen_url, categoria, precio, stock, comprar_url, activo, artesanoId}= req.body;
 
         const result = await productosModel.actualizarProductos(req.body);
 

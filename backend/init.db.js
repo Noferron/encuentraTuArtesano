@@ -27,7 +27,12 @@ await pool.query(`
       comentarios_url TEXT, 
       logo_url VARCHAR(500),
       activo BOOLEAN DEFAULT TRUE,
-      creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+      artesano_id INT NOT NULL,
+      CONSTRAINT fk_artesano_presentacion
+        FOREIGN KEY (artesano_id) REFERENCES artesanos(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
     )
   `);
 
@@ -43,7 +48,12 @@ await pool.query(`
       stock INT NOT NULL, 
       comprar_url VARCHAR (200),
       activo BOOLEAN DEFAULT TRUE,
-      creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+      creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+      artesano_id INT NOT NULL,
+      CONSTRAINT fk_artesano_productos
+        FOREIGN KEY (artesano_id) REFERENCES artesanos(id)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
     )
   `);
 
@@ -51,12 +61,17 @@ await pool.query(`
   console.log("✅ Base de datos creada correctamente");
 }
 async function artesanosEjemplo() {
-  
+
+const [result]= await pool.query(`
+  INSERT INTO artesanos (nombre,email,password)
+  VALUES ("Sembrao","sembrao@ejemplo.com","123456")
+  `)
+const artesanoId = result.insertId; // id autogenerado
 
 await pool.query(`
-  INSERT INTO IF NOT EXISTS presentacion 
-    (nombre, descripcion, localizacion, categoria, instagram_url, tienda_url, facebook_url, comentarios_url, logo_url)
-  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+  INSERT INTO presentacion 
+    (nombre, descripcion, localizacion, categoria, instagram_url, tienda_url, facebook_url, comentarios_url, logo_url, artesano_id)
+  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 `, [
   'Sembrao',
   `Somos William y Ari, una joven pareja que un día decidió empezar este pequeño proyecto llamado Sembrao. 
@@ -70,7 +85,8 @@ Juntos queremos iluminar tu hogar y tu vida, llevándote un pedacito de nuestro 
   'https://sembraomarket.com/',
   'https://www.facebook.com/profile.php?id=61568556785686&locale=es_ES',
   'No hay',
-  'https://sembraomarket.com/cdn/shop/files/logoweb_00afd599-b872-476c-ae2d-df0c16901d91.png?v=1757942342&width=220'
+  'https://sembraomarket.com/cdn/shop/files/logoweb_00afd599-b872-476c-ae2d-df0c16901d91.png?v=1757942342&width=220',
+   artesanoId // ← aquí pasamos el id válido
 ]);
 }
 

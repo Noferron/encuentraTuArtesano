@@ -1,11 +1,14 @@
-URL_API = "http://localhost:3000/api";
+//import {estado} from './login.js';
+import guardarSesion from "./login.js";
 
-async function cargarDatos(nombre, descripcion, imagen_url, categoria, precio, stock, comprar_url, activo){
+const URL_API = "http://localhost:3000/api";
+
+async function cargarDatos(nombre, descripcion, imagen_url, categoria, precio, stock, comprar_url, activo,artesanoId){
     try{
         const respuesta = await fetch (`${URL_API}/productos`,{
             method: 'POST',
             headers: {'Content-Type':'application/json'},
-            body: JSON.stringify({nombre, descripcion, imagen_url, categoria, precio, stock, comprar_url, activo})
+            body: JSON.stringify({nombre, descripcion, imagen_url, categoria, precio, stock, comprar_url, activo, artesanoId})
         });
 
         const datos= await respuesta.json();
@@ -24,7 +27,6 @@ async function cargarDatos(nombre, descripcion, imagen_url, categoria, precio, s
     }
 }
 
-//Falta crear la funcion que traiga los datos del formulario hacia la función cargarDatos
 
 function crearProducto(){
     const formulario = document.getElementById("formulario");
@@ -40,7 +42,12 @@ function crearProducto(){
         const stock = document.getElementById("stock").value;
         const comprar_url = document.getElementById("comprar_url").value;
         const activo = document.getElementById("activo").checked;
-        await cargarDatos(nombre,descripcion,imagen_url,categoria,precio,stock,comprar_url,activo);
+        
+        const user = JSON.parse(localStorage.getItem("user"));
+        const artesanoId = user?.id;
+
+
+        await cargarDatos(nombre,descripcion,imagen_url,categoria,precio,stock,comprar_url,activo,artesanoId);
 
         formulario.reset();
     })
