@@ -15,7 +15,7 @@
 
 
     
-<section class="auth-section" id="authSection">
+        <section class="auth-section" id="authSection">
                 <div class="auth-container">
                     <div class="auth-form" id="loginForm">
                         <h3>🔑 Iniciar Sesión</h3>
@@ -68,7 +68,43 @@
                         </p>
                     </div>
                 </div>
-            </section>
+        </section>
+            
+        <section id="presentacion">
+            <form id="formularioPresentacion">
+                <label for="logo_url">Enlace de tu logo</label>
+                <input type="url" id="logo_url" placeholder="Sube un enlace de la imagen de tu logo de tu drive, web u otro sitio donde lo tengas subido">
+                <br>
+                <label for="nombreP">Nombre</label>
+                <input type="text" id="nombreP" required placeholder="nombre de tu tienda">
+                <br>
+                <label for="descripcionP">Presentacion</label>
+                <input type="text" id="descripcionP" placeholder="Escribe una presentacion" required>
+                <br>
+                <label for="localizacion">Dirección</label>
+                <input type="text" id="localizacion" placeholder="dirección">
+                <br>
+                <label for="categoriaP">Categoria</label>
+                <input type="text" id="categoriaP" placeholder="velas, cerámica, pintura,..." required>
+                <br>
+                <label for="instagram_url">Enlace a instagram</label>
+                <input type="url" id="instagram_url" placeholder="" >
+                <br>
+                <label for="tienda_url">Enlace a tu tienda</label>
+                <input type="url" id="tienda_url" placeholder="www.artesano...">
+                <br>
+                <label for="facebook_url">Enlace a facebook</label>
+                <input type="url" id="facebook_url" placeholder="https://www.facebook/artenanos...">
+                <br>
+                <label for="comentarios_url">Enlace a los comentarios de tus clientes</label>
+                <input type="url" id="comentarios_url" placeholder="https://www.facebook/artenanos...">
+                <br>
+                <label for="activoP">¿Estás activo?</label>
+                <input type="checkbox" id="activoP">
+                <br>
+                <button type="submit" id="crearPresentacion">Crear presentación</button>
+            </form>
+        </section>
 
 
         <section id="cargarDatos">
@@ -100,6 +136,9 @@
                 <button type="submit" id="crearProducto">Crear producto</button>
             </form>
         </section>
+
+
+        <p id="artesanos"></p>
     <script type="module" src="cargarBBDD.js"></script>
     <script type="module" src="login.js"></script>
 </body>

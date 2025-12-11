@@ -30,6 +30,7 @@ app.use("/api/artesanos",artesanosRoutes);
 app.use("/api/productos", productosRoutes );
 app.use('/api/auth', authRoutes);
 
+
 // Arrancar el servidor
 const PORT = process.env.PORT || 3000;
 

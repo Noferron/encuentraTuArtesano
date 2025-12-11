@@ -47,3 +47,7 @@ DIFERENCIAS:
 
 --> HTML, es más antiguo y rígido.
 --> fetch, es más moderno y programable.
+
+# 2.- Como traer la id desde localStorage "user"
+*    Una vez que el usuario ha iniciado sesión, en localStorage se guardan sus datos (id,nombre, correo, etc) depende de los datos que hayamos indicado que queremos que se guarden. Pues como ahora queremos traer un dato concreto, que es la id, de localStorage para usarlo para localizar al usuario y poder clasificar los productos por usuario, para ello traemos el dato de la siguiente forma: 
+    ![alt text](image.png)
